@@ -8,7 +8,7 @@
 #define ENCODER1_DT A1 //Analog pin A1 for rotary encoder1
 #define ENCODER1_SW 15 //digital pin for encoder1 button
 
-//define enco
+//define encoder2 pins
 #define ENCODER2_CLK A2 //Analog pin A0 for rotary encoder2
 #define ENCODER2_DT A3 //Analog pin A1 for rotary encoder2
 #define ENCODER2_SW 14 //digital pin for encoder2 button
