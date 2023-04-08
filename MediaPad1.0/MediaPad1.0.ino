@@ -73,12 +73,12 @@ void loop() {
     if(last1<value1) // Detecting the direction of rotation
     {
       Consumer.write(MEDIA_VOLUME_UP); // Rotating counter-clockwise
-      delay(10);
+      delay(60);
     }
       else
     {
       Consumer.write(MEDIA_VOLUME_DOWN); // Rotating clockwise
-      delay(10);
+      delay(60);
     }
     last1 = value1; // Refreshing the "last" varible for the next loop with the current value
 
@@ -92,12 +92,12 @@ void loop() {
     if(last2<value2) // Detecting the direction of rotation
     {
       Consumer.write(MEDIA_NEXT); // Rotating counter-clockwise
-      delay(100);
+      delay(120);
     }
       else
     {
       Consumer.write(MEDIA_PREVIOUS); // Rotating clockwise
-      delay(100);
+      delay(120);
     }
 
     last2 = value2; // Refreshing the "last" varible for the next loop with the current value
