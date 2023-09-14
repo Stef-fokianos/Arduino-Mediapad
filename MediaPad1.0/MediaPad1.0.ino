@@ -63,8 +63,14 @@ void loop() {
 
   if (digitalRead(PINB) == LOW) //check if button C is pressed
   {
-    Consumer.write(CONSUMER_EXPLORER); //Temporarily opens file explorer
-    delay(200);
+      //Using app LightBulb, this key combination turns night light and dimms the screen
+        delay(200); // This delay prevents double click
+        Keyboard.press(KEY_LEFT_CTRL); //press left ctrl
+        Keyboard.press(KEY_LEFT_ALT); //press left alt
+        Keyboard.press(KEY_L); //press L
+        delay(100);
+        Keyboard.releaseAll(); //release all buttons
+      
   }
 
 
