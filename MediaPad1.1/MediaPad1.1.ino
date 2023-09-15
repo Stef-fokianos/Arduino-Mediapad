@@ -63,7 +63,7 @@ void loop() {
 
   if (digitalRead(PINB) == LOW) //check if button C is pressed
   {
-      //Using app LightBulb, this key combination turns night light and dimms the screen
+      //Using app LightBulb, this key combination reduces brightness and dimms the screen
         delay(200); // This delay prevents double click
         Keyboard.press(KEY_LEFT_CTRL); //press left ctrl
         Keyboard.press(KEY_LEFT_ALT); //press left alt
