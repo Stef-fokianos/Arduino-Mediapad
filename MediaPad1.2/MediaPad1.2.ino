@@ -56,18 +56,25 @@ void loop() {
   //This part is responsible for the buttons
 
   if (digitalRead(PINA) == LOW) //check if button B is pressed
-  {
-    Consumer.write(CONSUMER_CALCULATOR);  //Temporarily opens calculator app
-    delay(200);
+  { 
+        //I have made a custom .exe file which replaces fan settings and restarts AI Suite resulting in changed fan speed.
+        //This combination sets the fan speed to Standard profile
+        delay(200); // This delay prevents double click
+        Keyboard.press(KEY_LEFT_CTRL); //press left ctrl
+        Keyboard.press(KEY_LEFT_ALT); //press left alt
+        Keyboard.press(KEY_F10); //press f10
+        delay(100);
+        Keyboard.releaseAll(); //release all buttons
   }
 
   if (digitalRead(PINB) == LOW) //check if button C is pressed
   {
-      //Using app LightBulb, this key combination reduces brightness and dimms the screen
+        //I have made a custom .exe file which replaces fan settings and restarts AI Suite resulting in changed fan speed.
+        //This combination sets the fan speed to Silent profile
         delay(200); // This delay prevents double click
         Keyboard.press(KEY_LEFT_CTRL); //press left ctrl
         Keyboard.press(KEY_LEFT_ALT); //press left alt
-        Keyboard.press(KEY_L); //press L
+        Keyboard.press(KEY_F9); //press f9
         delay(100);
         Keyboard.releaseAll(); //release all buttons
       
@@ -79,12 +86,12 @@ void loop() {
     if(last1<value1) // Detecting the direction of rotation
     {
       Consumer.write(MEDIA_VOLUME_UP); // Rotating counter-clockwise
-      delay(60);
+      delay(65);
     }
       else
     {
       Consumer.write(MEDIA_VOLUME_DOWN); // Rotating clockwise
-      delay(60);
+      delay(65);
     }
     last1 = value1; // Refreshing the "last" varible for the next loop with the current value
 
@@ -98,12 +105,12 @@ void loop() {
     if(last2<value2) // Detecting the direction of rotation
     {
       Consumer.write(MEDIA_NEXT); // Rotating counter-clockwise
-      delay(160);
+      delay(180);
     }
       else
     {
       Consumer.write(MEDIA_PREVIOUS); // Rotating clockwise
-      delay(160);
+      delay(180);
     }
 
     last2 = value2; // Refreshing the "last" varible for the next loop with the current value
@@ -120,7 +127,6 @@ void loop() {
       case ClickEncoder::Clicked: // Encoder1 was clicked once
         {
         //Switch sound source with SoundSwitch program.
-
         Keyboard.press(KEY_LEFT_CTRL); //press left ctrl
         Keyboard.press(KEY_LEFT_ALT); //press left alt
         Keyboard.press(KEY_F11); //press f11
@@ -130,12 +136,19 @@ void loop() {
         
         } 
       break;      
-      
-      case ClickEncoder::DoubleClicked: // Encoder1 was double clicked
-        Consumer.write(MEDIA_VOLUME_MUTE); //Mute sound 
-      break;   
-    }
-  }
+
+      case ClickEncoder::DoubleClicked:// Encoder1 was double clicked
+      {
+        //Using app LightBulb, this key combination reduces brightness and dimms the screen
+        delay(200); // This delay prevents double click
+        Keyboard.press(KEY_LEFT_CTRL); //press left ctrl
+        Keyboard.press(KEY_LEFT_ALT); //press left alt
+        Keyboard.press(KEY_L); //press L
+        delay(100);
+        Keyboard.releaseAll(); //release all buttons 
+      }
+      break; 
+  }}
 
      // This next part handles the rotary encoder2 button
   ClickEncoder::Button b = encoder2->getButton(); // Asking the button for it's current state
@@ -151,8 +164,8 @@ void loop() {
       break;   
       	
       case ClickEncoder::DoubleClicked: // Encoder2 was double clicked
-        Consumer.write(CONSUMER_BROWSER_HOME); // Temporarily opens Homepage of default browser 
-      break;     
+        Consumer.write(MEDIA_VOLUME_MUTE); //Mute sound 
+      break;      
       
   }
 }}
