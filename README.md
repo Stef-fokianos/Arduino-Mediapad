@@ -2,5 +2,5 @@
 
 This is a personal project where I make an Arduino based Media pad .
 
-The readme file is currently a work in progress! I appreciate your patience.     
+Check the ReadMe file to learn more!
 
