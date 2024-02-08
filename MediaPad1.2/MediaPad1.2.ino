@@ -57,26 +57,20 @@ void loop() {
 
   if (digitalRead(PINA) == LOW) //check if button B is pressed
   { 
-        //I have made a custom .exe file which replaces fan settings and restarts AI Suite resulting in changed fan speed.
-        //This combination sets the fan speed to Standard profile
-        delay(200); // This delay prevents double click
-        Keyboard.press(KEY_LEFT_CTRL); //press left ctrl
-        Keyboard.press(KEY_LEFT_ALT); //press left alt
-        Keyboard.press(KEY_F10); //press f10
-        delay(100);
-        Keyboard.releaseAll(); //release all buttons
+        delay(200); //This delay prevents double click
+        Consumer.write(MEDIA_VOLUME_MUTE); //Mute sound         
   }
 
   if (digitalRead(PINB) == LOW) //check if button C is pressed
   {
-        //I have made a custom .exe file which replaces fan settings and restarts AI Suite resulting in changed fan speed.
-        //This combination sets the fan speed to Silent profile
+        //Using app LightBulb, this key combination reduces brightness and dimms the screen
         delay(200); // This delay prevents double click
         Keyboard.press(KEY_LEFT_CTRL); //press left ctrl
         Keyboard.press(KEY_LEFT_ALT); //press left alt
-        Keyboard.press(KEY_F9); //press f9
+        Keyboard.press(KEY_L); //press L
         delay(100);
-        Keyboard.releaseAll(); //release all buttons
+        Keyboard.releaseAll(); //release all buttons 
+        
       
   }
 
@@ -139,13 +133,7 @@ void loop() {
 
       case ClickEncoder::DoubleClicked:// Encoder1 was double clicked
       {
-        //Using app LightBulb, this key combination reduces brightness and dimms the screen
-        delay(200); // This delay prevents double click
-        Keyboard.press(KEY_LEFT_CTRL); //press left ctrl
-        Keyboard.press(KEY_LEFT_ALT); //press left alt
-        Keyboard.press(KEY_L); //press L
-        delay(100);
-        Keyboard.releaseAll(); //release all buttons 
+        //Not currently in use 
       }
       break; 
   }}
@@ -164,7 +152,7 @@ void loop() {
       break;   
       	
       case ClickEncoder::DoubleClicked: // Encoder2 was double clicked
-        Consumer.write(MEDIA_VOLUME_MUTE); //Mute sound 
+        //Not currently in use
       break;      
       
   }
