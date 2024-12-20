@@ -1,5 +1,7 @@
 # Arduino MediaPad
 
+There are two sections to this project. The hardware and housing comes first followed by the Arduino IDE-written software. It can be programmed and modified to meet its users needs thanks to buttons and rotary encoders attached to and Arduino board. I started by creating the end user's requirements before procceeding on to hardware, casing and software possibilities and approach to solution
+
 ## Contents
 
 1. [Introduction](#introduction)
